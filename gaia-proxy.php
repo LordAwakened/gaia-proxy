@@ -1,4 +1,14 @@
 <?php
+// 🌐 Allow CORS from your frontend site
+header("Access-Control-Allow-Origin: https://projectgaia.great-site.net");
+header("Access-Control-Allow-Headers: Content-Type");
+header("Access-Control-Allow-Methods: POST");
+
+// Handle preflight OPTIONS request
+if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
+    http_response_code(200);
+    exit();
+}
 // Load environment variables (API key stored securely)
 $apiKey = getenv("GROQ_API_KEY");
 
